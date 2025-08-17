@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esthe Diagnosis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="opening-page" class="page">
+        <h1>あなたにあったエステコースを見つけましょう</h1>
+        <button id="start-button">カウンセリングスタート</button>
+    </div>
+
+    <div id="question-page" class="page" style="display:none;">
+        <div class="progress-container">
+            <span id="progress-text"></span>
+        </div>
+        <h2 id="question-text"></h2>
+        <div id="answer-options">
+            <!-- Answer options will be dynamically loaded here -->
+        </div>
+        <button id="back-button" style="display:none;">戻る</button>
+    </div>
+
+    <div id="result-page-1" class="page" style="display:none;">
+        <h2>あなたへのおすすめメニュー</h2>
+        <h3 id="recommended-menu-title"></h3>
+        <img id="recommended-menu-image" src="" alt="おすすめメニュー画像" style="max-width:100%; height:auto; margin: 15px auto; display: block;">
+        <p id="recommended-menu-description"></p>
+        <button id="reserve-button">予約する</button>
+        <div class="button-row">
+            <button id="next-to-options-button">おすすめオプション</button>
+            <button id="restart-button">もう一度やり直す</button>
+        </div>
+    </div>
+
+    
+
+    <div id="result-page-3" class="page" style="display:none;">
+        <h2>おすすめオプション</h2>
+        <ul id="recommended-options">
+            <!-- Recommended options will be dynamically loaded here -->
+        </ul>
+        <button id="back-to-result1-from3-button">結果に戻る</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

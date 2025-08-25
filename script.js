@@ -35,7 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 { text: '乾燥・カサつき', score: 10 },
                 { text: 'たるみ・しわ', score: 20 },
                 { text: 'くすみ・シミ', score: 15 },
+                { text: '毛穴・キメ', score: 12 },
                 { text: 'ニキビ・肌荒れ', score: 5 }
+            ]
+        },
+        {
+            id: 'q_expect',
+            text: 'どのような効果を最も期待しますか？',
+            options: [
+                { text: 'リラックスしたい', score: 0 },
+                { text: 'すぐに効果を実感したい', score: 0 },
+                { text: '肌質を根本から改善したい', score: 0 },
+                { text: '特別な日のためのケアがしたい', score: 0 }
             ]
         },
         {
@@ -78,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'q6',
             text: '年齢をお聞かせください。',
             options: [
+                { text: '～34歳', score: 2 },
                 { text: '35–39歳', score: 5 },
                 { text: '40–44歳', score: 10 },
                 { text: '45–49歳', score: 15 },
@@ -145,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayQuestion() {
         if (currentQuestionIndex < questions.length) {
             const question = questions[currentQuestionIndex];
-            questionText.textContent = question.text;
+            questionText.innerHTML = question.text; // Use innerHTML to render <br>
             answerOptionsDiv.innerHTML = ''; // Clear previous options
 
             question.options.forEach(option => {
@@ -212,9 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         showPage(resultPage1);
 
-        // Result Page 2 (Esthetic Photos) - Clear this section as main image is moved
-        // estheticPhotosDiv.innerHTML = ''; // This line is no longer needed as estheticPhotosDiv is removed
-
         // Result Page 3 (Recommended Options)
         recommendedOptionsList.innerHTML = '';
         options.forEach(opt => {
@@ -232,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startButton.addEventListener('click', startCounseling);
     backButton.addEventListener('click', goBack);
     restartButton.addEventListener('click', restartCounseling);
-    reserveButton.addEventListener('click', () => alert('予約ページへ遷移します。')); // Placeholder for reservation
+    reserveButton.addEventListener('click', () => alert('申し込みページへ遷移します。')); // Placeholder for reservation
 
     nextToOptionsButton.addEventListener('click', () => showPage(resultPage3));
     backToResult1From3Button.addEventListener('click', () => showPage(resultPage1));
